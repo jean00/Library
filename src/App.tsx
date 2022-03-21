@@ -93,37 +93,40 @@ const App: FC = () => {
             backgroundColor: "#424242",
             minHeight: "100%",
             height: "auto",
-            color: "#ffff",
             overflowX: "hidden",
             paddingTop: "20px",
+            color: "#fff",
           }}
         >
           <FormControl component="form" onSubmit={submitBook}>
             <Typography> Title </Typography>
             <TextField
+              sx = {{input: {color: "#ffff"}}}
               value={title}
               onChange={handleChange}
               name="title"
-              variant="outlined"
+              variant="filled"
               required
             ></TextField>
 
             <Typography> Author </Typography>
             <TextField
+              sx = {{input: {color: "#ffff"}}}
               value={author}
               onChange={handleChange}
               name="author"
-              variant="outlined"
+              variant="filled"
               required
             ></TextField>
 
             <Typography> Total pages </Typography>
             <TextField
+              sx = {{input: {color: "#ffff"}}}
               value={pages}
               onChange={handleChange}
               name="pages"
               type="number"
-              variant="outlined"
+              variant="filled"
               placeholder="number of pages"
               required
             ></TextField>
@@ -135,7 +138,7 @@ const App: FC = () => {
                 setRead(e.target.value)
               }
               name="read"
-              sx={{ display: "block" }}
+              sx={{color: "#ffff", marginTop: "10px",marginBottom: "20px", display: "block" }}
               required
             >
               <option> Yes </option>
