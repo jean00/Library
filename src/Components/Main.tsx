@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "@mui/material";
 import BooksCard from "./BooksCard";
 import BookForm from "./BookForm";
@@ -14,6 +14,15 @@ const Main = () => {
   const removeBook = (bookToRemove: string): void => {
     setBooks(books.filter((book) => book.title !== bookToRemove));
   };
+
+  useEffect((): void => {
+    const localStorageData = localStorage.getItem("books");
+    if (localStorageData) setBooks(JSON.parse(localStorageData)); //retrieving item from the localstorage if it's not empty
+  }, []);
+
+  useEffect((): void => {
+    localStorage.setItem("books", JSON.stringify(books)); //setting item to the local storage
+  });
 
   return (
     <main style={{ display: "flex" }}>
